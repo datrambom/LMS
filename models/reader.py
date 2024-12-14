@@ -21,3 +21,7 @@ class Reader:
     def __str__(self):
         borrowed_titles = ', '.join([book.title for book in self.borrowed_books]) or "No books"
         return f"{self.first_name} {self.last_name} (#{self.ticket_number}) - Borrowed: {borrowed_titles}"
+
+    def apply_borrowed_books(self, books):
+        self.borrowed_books = [book for book in books if book]
+        return self

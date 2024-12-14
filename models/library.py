@@ -1,5 +1,6 @@
 class Library:
     def __init__(self):
+        self.file_manager = None
         self.books = []   # List of all books
         self.readers = []  # List of all readers
 
@@ -32,3 +33,4 @@ class Library:
                 return f"'{book.title}' has been returned by {reader.first_name} {reader.last_name}."
             return f"{reader.first_name} {reader.last_name} has not borrowed '{book.title}'."
         return "Book or Reader not found."
+
