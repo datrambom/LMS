@@ -42,13 +42,27 @@ class ReaderWindow:
         messagebox.showinfo("Success", "Reader added successfully.")
 
     def delete_reader(self):
-        ticket_number = self.ticket_number_entry.get()
-        readers = self.library.find_reader(ticket_number=ticket_number)
-        if readers:
-            self.library.readers.remove(readers[0])
-            messagebox.showinfo("Success", "Reader deleted successfully.")
-        else:
-            messagebox.showerror("Error", "Reader not found.")
+        """Удаляет читателя по номеру читательского билета."""
+        ticket_number = self.ticket_number_entry.get().strip()
+
+        if not ticket_number:
+            messagebox.showerror("Error", "Please enter a ticket number.")
+            return
+
+        # Найти читателя
+        readers = [reader for reader in self.library.readers if reader.ticket_number == ticket_number]
+
+        if not readers:
+            messagebox.showerror("Error", "Reader with this ticket number not found.")
+            return
+
+        # Удалить читателя
+        reader_to_remove = readers[0]  # В списке будет только один элемент
+        self.library.readers.remove(reader_to_remove)
+        self.library.save_data()
+        messagebox.showinfo("Success",
+                            f"Reader {reader_to_remove.first_name} {reader_to_remove.last_name} has been removed.")
+        self.ticket_number_entry.delete(0, tk.END)
 
     def view_readers(self):
         readers = self.library.readers

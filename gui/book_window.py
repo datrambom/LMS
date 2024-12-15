@@ -53,13 +53,26 @@ class BookWindow:
             messagebox.showerror("Error", "Year and Copies must be integers.")
 
     def delete_book(self):
-        title = self.title_entry.get()
-        books = self.library.find_book(title=title)
-        if books:
-            self.library.books.remove(books[0])
-            messagebox.showinfo("Success", "Book deleted successfully.")
-        else:
-            messagebox.showerror("Error", "Book not found.")
+        """Удаляет книгу по названию."""
+        title = self.title_entry.get().strip()
+
+        if not title:
+            messagebox.showerror("Error", "Please enter a book title.")
+            return
+
+        # Поиск книги
+        books = [book for book in self.library.books if book.title.lower() == title.lower()]
+
+        if not books:
+            messagebox.showerror("Error", "Book with this title not found.")
+            return
+
+        # Удаление книги
+        book_to_remove = books[0]  # В списке будет только один элемент
+        self.library.books.remove(book_to_remove)
+        self.library.save_data()
+        messagebox.showinfo("Success", f"Book '{book_to_remove.title}' has been removed.")
+        self.title_entry.delete(0, tk.END)
 
     def view_books(self):
         books = self.library.books
