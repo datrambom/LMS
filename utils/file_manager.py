@@ -9,14 +9,17 @@ class FileManager:
     def __init__(self, books_file="data/books.json", readers_file="data/readers.json"):
         self.books_file = books_file
         self.readers_file = readers_file
-        self._ensure_file(self.books_file)
-        self._ensure_file(self.readers_file)
+        self._ensure_file(self.books_file, [])
+        self._ensure_file(self.readers_file, [])
 
-    def _ensure_file(self, file_path):
-        """Создаёт пустой файл, если его не существует."""
+    def _ensure_file(self, file_path, default_content):
+        """Создаёт файл, если он отсутствует."""
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)  # Создаём папку, если её нет
+
         if not os.path.exists(file_path):
-            with open(file_path, 'w') as file:
-                json.dump([], file)
+            with open(file_path, "w", encoding="utf-8") as file:
+                json.dump(default_content, file)  # Записываем пустую структуру данных
+
 
     def save_books(self, books):
         """Сохраняет список книг в файл."""
