@@ -9,7 +9,6 @@ class FileManager:
     def __init__(self, books_file="data/books.json", readers_file="data/readers.json"):
         self.books_file = books_file
         self.readers_file = readers_file
-        # Убедитесь, что файлы существуют
         self._ensure_file(self.books_file)
         self._ensure_file(self.readers_file)
 

@@ -1,0 +1,16 @@
+[
+    {
+        "first_name": "John",
+        "last_name": "Doe",
+        "ticket_number": "0",
+        "borrowed_books": [
+            "1984"
+        ]
+    },
+    {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "ticket_number": "0",
+        "borrowed_books": []
+    }
+]

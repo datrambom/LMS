@@ -6,6 +6,5 @@ if __name__ == "__main__":
     library = Library()
     root = tk.Tk()
     app = MainWindow(root, library)
-    root.mainloop()
 
-    #library.save_data()
+    root.mainloop()

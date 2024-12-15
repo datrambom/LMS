@@ -1,16 +1,26 @@
 import tkinter as tk
 from tkinter import messagebox
 
+
+#from tkinter.scrolledtext import ScrolledText
+
+
 class ReportWindow:
     def __init__(self, root, library):
+        self.report_text = None
         self.root = root
         self.library = library
         self.root.title("Reports")
+
+        #self.report_text = ScrolledText(root, width=50, height=20)
+        #self.report_text.pack(pady=10)
 
         # Кнопки
         tk.Button(root, text="Books by Genre", command=self.report_books_by_genre).pack(pady=5)
         tk.Button(root, text="Total Books", command=self.report_total_books).pack(pady=5)
         tk.Button(root, text="Reader Report", command=self.report_reader_books).pack(pady=5)
+        tk.Button(root, text="Borrowed/In Store Report", command=self.show_borrowed_in_store).pack(pady=5)
+        tk.Button(root, text="Close", command=self.root.destroy).pack(pady=5)
 
     def report_books_by_genre(self):
         genre_report = {}
@@ -34,3 +44,9 @@ class ReportWindow:
             for reader in readers
         )
         messagebox.showinfo("Reader Report", report)
+
+    def show_borrowed_in_store(self):
+        report = self.library.report_borrowed_in_store()  # Генерация отчёта из библиотеки
+        if not report:
+            report = "No books available in the library at the moment."  # Обработка пустого отчёта
+        messagebox.showinfo("Borrowed/In Store Report", report)
