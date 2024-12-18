@@ -1,4 +1,4 @@
-import tkinter as tk
+import customtkinter as tk
 from tkinter import messagebox
 
 class BorrowReturnWindow:
@@ -8,18 +8,18 @@ class BorrowReturnWindow:
         self.root.title("Borrow/Return Books")
 
         # Widgets for Reader Ticket Number
-        tk.Label(root, text="Reader Ticket Number:").grid(row=0, column=0)
-        self.ticket_entry = tk.Entry(root, width=30)
+        tk.CTkLabel(root, text="Reader Ticket Number:").grid(row=0, column=0)
+        self.ticket_entry = tk.CTkEntry(root, width=100)
         self.ticket_entry.grid(row=0, column=1)
 
         # Widgets for Book Title
-        tk.Label(root, text="Book Title:").grid(row=1, column=0)
-        self.book_entry = tk.Entry(root, width=30)
+        tk.CTkLabel(root, text="Book Title:").grid(row=1, column=0)
+        self.book_entry = tk.CTkEntry(root, width=100)
         self.book_entry.grid(row=1, column=1)
 
         # Buttons for Borrow and Return
-        tk.Button(root, text="Borrow Book", command=self.borrow_book).grid(row=2, column=0, pady=10)
-        tk.Button(root, text="Return Book", command=self.return_book).grid(row=2, column=1, pady=10)
+        tk.CTkButton(root, text="Borrow Book", command=self.borrow_book).grid(row=2, column=0, pady=10)
+        tk.CTkButton(root, text="Return Book", command=self.return_book).grid(row=2, column=1, pady=10)
 
     def borrow_book(self):
         ticket_number = self.ticket_entry.get()

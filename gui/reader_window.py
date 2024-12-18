@@ -1,4 +1,4 @@
-import tkinter as tk
+import customtkinter as ctk
 from tkinter import messagebox
 from models.reader import Reader
 
@@ -9,14 +9,14 @@ class ReaderWindow:
         self.root.title("Manage Readers")
 
         # Поля ввода
-        self.first_name_entry = tk.Entry(root, width=30)
-        self.last_name_entry = tk.Entry(root, width=30)
-        self.ticket_number_entry = tk.Entry(root, width=30)
+        self.first_name_entry = ctk.CTkEntry(root, width=100)
+        self.last_name_entry = ctk.CTkEntry(root, width=100)
+        self.ticket_number_entry = ctk.CTkEntry(root, width=100)
 
         # Метки
-        tk.Label(root, text="First Name:").grid(row=0, column=0)
-        tk.Label(root, text="Last Name:").grid(row=1, column=0)
-        tk.Label(root, text="Ticket Number:").grid(row=2, column=0)
+        ctk.CTkLabel(root, text="First Name:").grid(row=0, column=0)
+        ctk.CTkLabel(root, text="Last Name:").grid(row=1, column=0)
+        ctk.CTkLabel(root, text="Ticket Number:").grid(row=2, column=0)
 
         # Расположение полей
         self.first_name_entry.grid(row=0, column=1)
@@ -24,9 +24,9 @@ class ReaderWindow:
         self.ticket_number_entry.grid(row=2, column=1)
 
         # Кнопки
-        tk.Button(root, text="Add Reader", command=self.add_reader).grid(row=3, column=0, pady=10)
-        tk.Button(root, text="Delete Reader", command=self.delete_reader).grid(row=3, column=1, pady=10)
-        tk.Button(root, text="View Readers", command=self.view_readers).grid(row=4, column=0, pady=10, columnspan=2)
+        ctk.CTkButton(root, text="Add Reader", command=self.add_reader).grid(row=3, column=0, pady=10)
+        ctk.CTkButton(root, text="Delete Reader", command=self.delete_reader).grid(row=3, column=1, pady=10)
+        ctk.CTkButton(root, text="View Readers", command=self.view_readers).grid(row=4, column=0, pady=10, columnspan=2)
 
     def add_reader(self):
         first_name = self.first_name_entry.get()
@@ -62,7 +62,7 @@ class ReaderWindow:
         self.library.save_data()
         messagebox.showinfo("Success",
                             f"Reader {reader_to_remove.first_name} {reader_to_remove.last_name} has been removed.")
-        self.ticket_number_entry.delete(0, tk.END)
+        self.ticket_number_entry.delete(0, ctk.END)
 
     def view_readers(self):
         readers = self.library.readers

@@ -3,14 +3,12 @@
         "first_name": "John",
         "last_name": "Doe",
         "ticket_number": "0",
-        "borrowed_books": [
-            "1984"
-        ]
+        "borrowed_books": []
     },
     {
         "first_name": "Jane",
         "last_name": "Doe",
-        "ticket_number": "0",
+        "ticket_number": "1",
         "borrowed_books": []
     }
 ]
