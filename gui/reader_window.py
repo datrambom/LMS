@@ -2,6 +2,7 @@ import customtkinter as ctk
 from tkinter import messagebox
 from models.reader import Reader
 
+
 class ReaderWindow:
     def __init__(self, root, library):
         self.root = root
@@ -19,14 +20,15 @@ class ReaderWindow:
         ctk.CTkLabel(root, text="Ticket Number:").grid(row=2, column=0)
 
         # Расположение полей
-        self.first_name_entry.grid(row=0, column=1)
-        self.last_name_entry.grid(row=1, column=1)
-        self.ticket_number_entry.grid(row=2, column=1)
+        self.first_name_entry.grid(row=0, pady=5, column=1)
+        self.last_name_entry.grid(row=1, pady=5, column=1)
+        self.ticket_number_entry.grid(row=2, pady=5, column=1)
 
         # Кнопки
-        ctk.CTkButton(root, text="Add Reader", command=self.add_reader).grid(row=3, column=0, pady=10)
-        ctk.CTkButton(root, text="Delete Reader", command=self.delete_reader).grid(row=3, column=1, pady=10)
-        ctk.CTkButton(root, text="View Readers", command=self.view_readers).grid(row=4, column=0, pady=10, columnspan=2)
+        ctk.CTkButton(root, text="Add Reader", command=self.add_reader).grid(row=3, column=0, pady=5, padx=5)
+        ctk.CTkButton(root, text="Delete Reader", command=self.delete_reader).grid(row=3, column=1, pady=5, padx=5)
+        ctk.CTkButton(root, text="View Readers",
+                      command=self.view_readers).grid(row=4, column=0, pady=5, padx=5, columnspan=2)
 
     def add_reader(self):
         first_name = self.first_name_entry.get()

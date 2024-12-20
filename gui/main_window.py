@@ -22,12 +22,12 @@ class MainWindow:
         # Кнопки
         empty_space = ctk.CTkLabel(root, text="", height=1)
         empty_space.pack()
-        ctk.CTkButton(root, text="Manage Books", command=self.open_books_window).pack(pady=5)
-        ctk.CTkButton(root, text="Manage Readers", command=self.open_readers_window).pack(pady=5)
-        ctk.CTkButton(root, text="Borrow/Return Books", command=self.open_borrow_return_window).pack(pady=5)
-        ctk.CTkButton(root, text="Reports", command=self.open_reports_window).pack(pady=5)
-        ctk.CTkButton(root, text="Save Data", command=self.save_data).pack(pady=5)
-        ctk.CTkButton(root, text="Exit", command=self.root.quit).pack(pady=5)
+        ctk.CTkButton(root, text="Manage Books", command=self.open_books_window).pack(pady=5, padx=5)
+        ctk.CTkButton(root, text="Manage Readers", command=self.open_readers_window).pack(pady=5, padx=5)
+        ctk.CTkButton(root, text="Borrow/Return Books", command=self.open_borrow_return_window).pack(pady=5, padx=5)
+        ctk.CTkButton(root, text="Reports", command=self.open_reports_window).pack(pady=5, padx=5)
+        ctk.CTkButton(root, text="Save Data", command=self.save_data).pack(pady=5, padx=5)
+        ctk.CTkButton(root, text="Exit", command=self.root.quit).pack(pady=5, padx=5)
 
     def open_books_window(self):
         new_window = ctk.CTkToplevel(self.root)

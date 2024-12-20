@@ -16,11 +16,11 @@ class ReportWindow:
         #self.report_text.pack(pady=10)
 
         # Кнопки
-        tk.CTkButton(root, text="Books by Genre", command=self.report_books_by_genre).pack(pady=5)
-        tk.CTkButton(root, text="Total Books", command=self.report_total_books).pack(pady=5)
-        tk.CTkButton(root, text="Reader Report", command=self.report_reader_books).pack(pady=5)
-        tk.CTkButton(root, text="Borrowed/In Store Report", command=self.show_borrowed_in_store).pack(pady=5)
-        tk.CTkButton(root, text="Close", command=self.root.destroy).pack(pady=5)
+        tk.CTkButton(root, text="Books by Genre", command=self.report_books_by_genre).pack(pady=5, padx=5)
+        tk.CTkButton(root, text="Total Books", command=self.report_total_books).pack(pady=5, padx=5)
+        tk.CTkButton(root, text="Reader Report", command=self.report_reader_books).pack(pady=5, padx=5)
+        tk.CTkButton(root, text="Borrowed/In Store", command=self.show_borrowed_in_store).pack(pady=5, padx=5)
+        tk.CTkButton(root, text="Close", command=self.root.destroy).pack(pady=5, padx=5)
 
     def report_books_by_genre(self):
         genre_report = {}

@@ -10,16 +10,16 @@ class BorrowReturnWindow:
         # Widgets for Reader Ticket Number
         tk.CTkLabel(root, text="Reader Ticket Number:").grid(row=0, column=0)
         self.ticket_entry = tk.CTkEntry(root, width=100)
-        self.ticket_entry.grid(row=0, column=1)
+        self.ticket_entry.grid(row=0, pady=5, column=1)
 
         # Widgets for Book Title
         tk.CTkLabel(root, text="Book Title:").grid(row=1, column=0)
         self.book_entry = tk.CTkEntry(root, width=100)
-        self.book_entry.grid(row=1, column=1)
+        self.book_entry.grid(row=1, pady=5, column=1)
 
         # Buttons for Borrow and Return
-        tk.CTkButton(root, text="Borrow Book", command=self.borrow_book).grid(row=2, column=0, pady=10)
-        tk.CTkButton(root, text="Return Book", command=self.return_book).grid(row=2, column=1, pady=10)
+        tk.CTkButton(root, text="Borrow Book", command=self.borrow_book).grid(row=2, column=0, pady=5, padx=5)
+        tk.CTkButton(root, text="Return Book", command=self.return_book).grid(row=2, column=1, pady=5, padx=5)
 
     def borrow_book(self):
         ticket_number = self.ticket_entry.get()

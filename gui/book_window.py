@@ -2,6 +2,7 @@ import customtkinter as ctk
 from tkinter import messagebox
 from models.book import Book
 
+
 class BookWindow:
     def __init__(self, root, library):
         self.root = root
@@ -23,16 +24,17 @@ class BookWindow:
         ctk.CTkLabel(root, text="Copies:").grid(row=4, column=0)
 
         # Расположение полей
-        self.title_entry.grid(row=0, column=1)
-        self.author_entry.grid(row=1, column=1)
-        self.year_entry.grid(row=2, column=1)
-        self.genre_entry.grid(row=3, column=1)
-        self.copies_entry.grid(row=4, column=1)
+        self.title_entry.grid(row=0, pady=5, column=1)
+        self.author_entry.grid(row=1, pady=5, column=1)
+        self.year_entry.grid(row=2, pady=5, column=1)
+        self.genre_entry.grid(row=3, pady=5, column=1)
+        self.copies_entry.grid(row=4, pady=5, column=1)
 
         # Кнопки
-        ctk.CTkButton(root, text="Add Book", command=self.add_book).grid(row=5, column=0, pady=10)
-        ctk.CTkButton(root, text="Delete Book", command=self.delete_book).grid(row=5, column=1, pady=10)
-        ctk.CTkButton(root, text="View Books", command=self.view_books).grid(row=6, column=0, pady=10, columnspan=2)
+        ctk.CTkButton(root, text="Add Book", command=self.add_book).grid(row=5, column=0, pady=5, padx=5)
+        ctk.CTkButton(root, text="Delete Book", command=self.delete_book).grid(row=5, column=1, pady=5, padx=5)
+        ctk.CTkButton(root, text="View Books",
+                      command=self.view_books).grid(row=6, column=0, pady=5, padx=5, columnspan=2)
 
     def add_book(self):
         title = self.title_entry.get()
